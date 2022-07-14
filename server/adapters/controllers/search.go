@@ -1,9 +1,11 @@
 package guest
 
-import "item_management/usecases/interactors"
+import (
+	"item_management/server/usecases/companies"
+)
 
 type GuestController struct {
-	Interactor interactors.CompanyInteractor
+	Interactor companies.CompanyInteractor
 }
 
 func InitGuestController(sqlHandler gateway.SQLHandler) *GuestController {
