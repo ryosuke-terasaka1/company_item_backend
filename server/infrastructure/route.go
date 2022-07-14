@@ -1,10 +1,10 @@
 package infrastructure
 
 import (
+	"item_management/server/infrastructure/routes"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-
-	"item_management/infrastructure/routes"
 )
 
 func Run() {
