@@ -1,8 +1,8 @@
-package ports
+package items
 
 import (
 	"context"
-	"item_management/entities"
+	"item_management/server/entities"
 )
 
 type ItemInputPort interface {

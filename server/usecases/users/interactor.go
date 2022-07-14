@@ -1,17 +1,16 @@
-package interactors
+package users
 
 import (
 	"context"
-	"item_management/entities"
-	"item_management/usecases/ports"
+	"item_management/server/entities"
 )
 
 type UserInteractor struct {
-	OutputPort ports.UserOutputPort
-	Repository ports.UserRepository
+	OutputPort UserOutputPort
+	Repository UserRepository
 }
 
-func NewUserInputPort(outputPort ports.UserOutputPort, repository ports.UserRepository) ports.UserInputPort {
+func NewUserInputPort(outputPort UserOutputPort, repository UserRepository) UserInputPort {
 	return &UserInteractor{
 		OutputPort: outputPort,
 		Repository: repository,
