@@ -1,17 +1,16 @@
-package interactors
+package companies
 
 import (
 	"context"
-	"item_management/entities"
-	"item_management/usecases/ports"
+	"item_management/server/entities"
 )
 
 type CompanyInteractor struct {
-	OutputPort ports.CompanyOutputPort
-	Repository ports.CompanyRepository
+	OutputPort CompanyOutputPort
+	Repository CompanyRepository
 }
 
-func NewCompanyInputPort(outputPort ports.CompanyOutputPort, repository ports.CompanyRepository) ports.CompanyInputPort {
+func NewCompanyInputPort(outputPort CompanyOutputPort, repository CompanyRepository) CompanyInputPort {
 	return &CompanyInteractor{
 		OutputPort: outputPort,
 		Repository: repository,

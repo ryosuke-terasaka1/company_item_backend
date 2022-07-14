@@ -1,17 +1,16 @@
-package interactors
+package items
 
 import (
 	"context"
-	"item_management/entities"
-	"item_management/usecases/ports"
+	"item_management/server/entities"
 )
 
 type ItemInteractor struct {
-	OutputPort ports.ItemOutputPort
-	Repository ports.ItemRepository
+	OutputPort ItemOutputPort
+	Repository ItemRepository
 }
 
-func NewItemInputPort(outputPort ports.ItemOutputPort, repository ports.ItemRepository) ports.ItemInputPort {
+func NewItemInputPort(outputPort ItemOutputPort, repository ItemRepository) ItemInputPort {
 	return &ItemInteractor{
 		OutputPort: outputPort,
 		Repository: repository,
