@@ -6,15 +6,15 @@ type CompanyRepository struct {
 	SQLHandler
 }
 
-func (repo *GuestRepository) FindByID(id int) (guest entities.User, err error) {
-	if err = repo.Find(&guest, id).Error; err != nil {
+func (repo *CompanyRepository) FindByID(id int) (company entities.Company, err error) {
+	if err = repo.Find(&company, id).Error; err != nil {
 		return
 	}
 	return
 }
 
-func (repo *GuestRepository) FindAll() (guests entities.User, err error) {
-	if err = repo.Find(&guests).Error; err != nil {
+func (repo *CompanyRepository) FindAll() (companies entities.Company, err error) {
+	if err = repo.Find(&companies).Error; err != nil {
 		return
 	}
 	return
