@@ -1,7 +1,10 @@
 package entities
 
 type Item struct {
-	Name     string `json:"name"`
+	ID       int    `json:"id" gorm:"primary_key"`
+	Name     string `json:"name" gorm:"not null"`
 	Price    int    `json:"price"`
 	Quantity string `json:"quantity"`
 }
+
+type Items []Item
