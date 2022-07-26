@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"item_management/server/adapters/gateways"
+	"item_management/server/interfaces/gateways"
 	"log"
 	"os"
 	"time"
