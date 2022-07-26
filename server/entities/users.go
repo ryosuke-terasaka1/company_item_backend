@@ -1,6 +1,9 @@
 package entities
 
 type User struct {
-	Name  string `json:"name"`
+	ID    int    `json:"id" gorm:"primary_key"`
+	Name  string `json:"name" gorm:"not null"`
 	Email string `json:"email"`
 }
+
+type Users []User
