@@ -1,36 +1,19 @@
 package items
 
 import (
-	"context"
 	"item_management/server/entities"
 )
 
 type ItemInteractor struct {
-	OutputPort ItemOutputPort
-	Repository ItemRepository
+	ItemPort ItemPort
 }
 
-func NewItemInputPort(outputPort ItemOutputPort, repository ItemRepository) ItemInputPort {
-	return &ItemInteractor{
-		OutputPort: outputPort,
-		Repository: repository,
-	}
+func (interactor *ItemInteractor) FindItemByID(id int) (item entities.Item, err error) {
+	item, err = interactor.ItemPort.FindItemByID(id)
+	return
 }
 
-func (u *ItemInteractor) AddItem(ctx context.Context, item *entities.Item) error {
-	items, err := u.Repository.AddItem(ctx, item)
-	if err != nil {
-		return u.OutputPort.OutputError(err)
-	}
-
-	return u.OutputPort.OutputItems(items)
-}
-
-func (u *ItemInteractor) GetItems(ctx context.Context) error {
-	items, err := u.Repository.GetItems(ctx)
-	if err != nil {
-		return u.OutputPort.OutputError(err)
-	}
-
-	return u.OutputPort.OutputItems(items)
+func (interactor *ItemInteractor) FindAllItems() (items entities.Items, err error) {
+	items, err = interactor.ItemPort.FindAllItems()
+	return
 }
