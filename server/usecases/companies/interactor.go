@@ -1,36 +1,19 @@
 package companies
 
 import (
-	"context"
 	"item_management/server/entities"
 )
 
 type CompanyInteractor struct {
-	OutputPort CompanyOutputPort
-	Repository CompanyRepository
+	CompanyPort CompanyPort
 }
 
-func NewCompanyInputPort(outputPort CompanyOutputPort, repository CompanyRepository) CompanyInputPort {
-	return &CompanyInteractor{
-		OutputPort: outputPort,
-		Repository: repository,
-	}
+func (interactor *CompanyInteractor) FindCompanyByID(id int) (Company entities.Company, err error) {
+	Company, err = interactor.CompanyPort.FindCompanyByID(id)
+	return
 }
 
-func (u *CompanyInteractor) AddCompany(ctx context.Context, company *entities.Company) error {
-	companies, err := u.Repository.AddCompany(ctx, company)
-	if err != nil {
-		return u.OutputPort.OutputError(err)
-	}
-
-	return u.OutputPort.OutputCompanys(companies)
-}
-
-func (u *CompanyInteractor) GetCompanys(ctx context.Context) error {
-	companies, err := u.Repository.GetCompanys(ctx)
-	if err != nil {
-		return u.OutputPort.OutputError(err)
-	}
-
-	return u.OutputPort.OutputCompanys(companies)
+func (interactor *CompanyInteractor) FindAllCompanies() (Companies entities.Companies, err error) {
+	Companies, err = interactor.CompanyPort.FindAllCompanies()
+	return
 }

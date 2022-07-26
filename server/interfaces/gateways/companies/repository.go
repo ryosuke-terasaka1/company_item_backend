@@ -1,9 +1,12 @@
-package gateways
+package companies
 
-import "item_management/server/entities"
+import (
+	"item_management/server/entities"
+	"item_management/server/interfaces/gateways"
+)
 
 type CompanyRepository struct {
-	SQLHandler
+	gateways.SQLHandler
 }
 
 func (repo *CompanyRepository) FindByID(id int) (company entities.Company, err error) {
