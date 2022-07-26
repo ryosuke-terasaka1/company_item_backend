@@ -1,9 +1,12 @@
-package gateways
+package users
 
-import "item_management/server/entities"
+import (
+	"item_management/server/entities"
+	"item_management/server/interfaces/gateways"
+)
 
 type UserRepository struct {
-	SQLHandler
+	gateways.SQLHandler
 }
 
 func (repo *UserRepository) UserFindByID(id int) (user entities.User, err error) {
