@@ -1,7 +1,7 @@
-package infrastructure
+package drivers
 
 import (
-	"item_management/server/infrastructure/routes"
+	"item_management/server/drivers/routes"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
