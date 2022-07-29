@@ -13,7 +13,7 @@ func (interactor *ItemInteractor) ItemByID(id int) (item entities.Item, err erro
 	return
 }
 
-func (interactor *ItemInteractor) ALLItems() (items entities.Items, err error) {
+func (interactor *ItemInteractor) AllItems() (items entities.Items, err error) {
 	items, err = interactor.ItemPort.FindAllItems()
 	return
 }
