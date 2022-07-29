@@ -16,7 +16,7 @@ func (repo *ItemRepository) FindItemByID(id int) (item entities.Item, err error)
 	return
 }
 
-func (repo *ItemRepository) FindAllItems() (items entities.Item, err error) {
+func (repo *ItemRepository) FindAllItems() (items entities.Items, err error) {
 	if err = repo.Find(&items).Error; err != nil {
 		return
 	}

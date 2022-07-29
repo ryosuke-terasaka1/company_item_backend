@@ -9,14 +9,14 @@ type UserRepository struct {
 	gateways.SQLHandler
 }
 
-func (repo *UserRepository) UserFindByID(id int) (user entities.User, err error) {
+func (repo *UserRepository) FindUserByID(id int) (user entities.User, err error) {
 	if err = repo.Find(&user, id).Error; err != nil {
 		return
 	}
 	return
 }
 
-func (repo *UserRepository) UserFindAll() (users entities.User, err error) {
+func (repo *UserRepository) FindAllUsers() (users entities.Users, err error) {
 	if err = repo.Find(&users).Error; err != nil {
 		return
 	}
